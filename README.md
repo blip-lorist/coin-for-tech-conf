@@ -15,7 +15,7 @@ Aspiring and current tech students who wouldn't be able to attend tech conferenc
 
   - Scheduling recurring, automated tasks with cron (and perhaps Whenever gem assistance)
   - Getting a bot to post all by itself (you can do it, little bot!)
-  - Learning more about the bot community
+  - Learning more about the bot communit. Release the bots! 👾👾👾
 
 ## Technologies / Frameworks / Patterns
 
