@@ -29,6 +29,7 @@ Aspiring and current tech students who wouldn't be able to attend tech conferenc
 ## Tech Dependencies
   - My bot's life depends on Twitter! We'll need to play well with their TOS.
 
+
 ## Skill Dependences
   - This will be my first foray into bots, #botlyfe, and being a #botALLY. Wish me luck! I'll need to dig through bot community forums, guides, and projects for implementation ideas
   - My little bot's health will depend on TDD
@@ -41,3 +42,8 @@ Aspiring and current tech students who wouldn't be able to attend tech conferenc
   - Filtering search results by certain criteria: Number of favorites and retweets, very specific keywords, etc
   - Having CoinForTechConf add its own hashtags to retweets for easier sorting
   - Adjusting bot settings so that CoinForTechConf responds to common Twitter interactions (follows, mentions, etc)
+
+## Resources (List Ongoing)
+  - [Twitter Automation Rules and Best Practices](https://support.twitter.com/articles/76915)
+  - [botALLY hashtag](https://twitter.com/hashtag/botally)
+  - [Twitter Dev Forums](https://twittercommunity.com/)
