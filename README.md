@@ -1,8 +1,8 @@
-#CoinForTechConf
+# CoinForTechConf
 
 Worry less about $$$ and focus on attending an upcoming tech conference!
 
-This bot will retweet sweet mentions of tech conference scholarships.
+This bot will retweet info about tech conference scholarships.
 
 ## Project Goal:
 A bot that automatically searches for mentions of technology conference scholarships at set time intervals. Yielded results are automatically retweeted.
