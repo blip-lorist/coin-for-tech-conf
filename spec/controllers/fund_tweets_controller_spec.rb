@@ -19,4 +19,13 @@ RSpec.describe FundTweetsController, type: :controller do
       end
     end
   end
+
+  describe "POST fund_tweets#retweet" do
+
+    it "posts on the behalf of Coin for Tech Conf" do
+      VCR.use_cassette "retweets" do
+        post :retweet
+      end
+    end
+  end
 end
