@@ -21,3 +21,4 @@ coverage
 
 # Seeeecrets
 .env
+/vcr_cassettes
