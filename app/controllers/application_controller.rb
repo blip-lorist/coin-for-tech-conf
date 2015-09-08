@@ -1,5 +1,5 @@
 require "twitter"
-requrie "twit_init"
+require "twit_init"
 
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.

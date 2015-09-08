@@ -6,14 +6,14 @@ RSpec.describe FundTweetsController, type: :controller do
     let (:twitter_params) {{search_term: "tech conference scholarship"}}
 
     it "returns JSON" do
-      get :search, twitter_params
+      get :search
       expect(response.header['Content-Type']).to include 'application/json'
     end
 
     it "returns tweets after a successful search query" do
       VCR.use_cassette 'twitter_search_results' do
-        get :search, twitter_params
-        
+        get :search
+
         expect(assigns(:response)).count.to eq(1)
       end
     end
