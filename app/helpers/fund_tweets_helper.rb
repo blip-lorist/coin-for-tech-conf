@@ -1,0 +1,2 @@
+module FundTweetsHelper
+end
