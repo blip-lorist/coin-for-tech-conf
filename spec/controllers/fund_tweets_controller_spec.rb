@@ -10,12 +10,12 @@ RSpec.describe FundTweetsController, type: :controller do
       expect(response.header['Content-Type']).to include 'application/json'
     end
 
-
-    # it "receives search results from the Twitter API" do
-    #   VCR.use_cassette 'twitter_search_results' do
-    #     get :search, twitter_params
-    #
-    #   end
-    # end
+    it "returns tweets after a successful search query" do
+      VCR.use_cassette 'twitter_search_results' do
+        get :search, twitter_params
+        
+        expect(assigns(:response)).count.to eq(1)
+      end
+    end
   end
 end
