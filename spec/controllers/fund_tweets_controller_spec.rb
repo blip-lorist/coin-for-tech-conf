@@ -25,6 +25,7 @@ RSpec.describe FundTweetsController, type: :controller do
     it "posts on the behalf of Coin for Tech Conf" do
       VCR.use_cassette "retweets" do
         post :retweet
+        expect(assigns(:post).text).to include("Look out, world!")
       end
     end
   end

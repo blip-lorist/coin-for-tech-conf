@@ -6,7 +6,7 @@ class FundTweetsController < ApplicationController
   end
 
   def retweet
-    twitter_client.update("Look out, world!")
+    @post = twitter_client.update("Look out, world!")
     render json: {}
   end
 end
