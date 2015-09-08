@@ -1,0 +1,2 @@
+class FundTweetsController < ApplicationController
+end
