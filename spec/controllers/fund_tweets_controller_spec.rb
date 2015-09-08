@@ -22,10 +22,10 @@ RSpec.describe FundTweetsController, type: :controller do
 
   describe "POST fund_tweets#retweet" do
 
-    it "posts on the behalf of Coin for Tech Conf" do
+    it "collects all relevant tweet ids in @retweet_ids" do
       VCR.use_cassette "retweets" do
         post :retweet
-        expect(assigns(:post).text).to include("Look out, world!")
+        expect(assigns(:retweet_ids).count).to be(5)
       end
     end
   end
