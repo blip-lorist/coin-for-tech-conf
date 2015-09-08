@@ -12,8 +12,4 @@ RSpec.describe FundTweetsController, type: :controller do
       end
     end
   end
-
-
-
-
 end
