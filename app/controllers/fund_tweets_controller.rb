@@ -12,13 +12,11 @@ class FundTweetsController < ApplicationController
     search
     # Retweet
     @search_results.each do |tweet|
-      unless tweet.retweeted?
-        begin
-          twitter_client.retweet(tweet)
-        rescue Twitter::Error
-          # Try to retweet the next tweet if there's a Twitter gem error
-          next
-        end
+      begin
+        twitter_client.retweet(tweet)
+      rescue Twitter::Error
+        # Try to retweet the next tweet if there's a Twitter gem error
+        next
       end
     end
   end

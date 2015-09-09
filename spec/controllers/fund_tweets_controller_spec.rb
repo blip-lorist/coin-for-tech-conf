@@ -26,12 +26,10 @@ RSpec.describe FundTweetsController, type: :controller do
       it "retweets" do
         VCR.use_cassette "retweets" do
           post :retweet
+          tweet_id = assigns(:search_results).first.id
+          tweet = (controller.send(:twitter_client)).status(tweet_id)
+          expect(tweet.retweeted?).to eq(true)
         end
-      end
-    end
-
-    context "when a duplicate is found" do
-      it "skips the retweet attempt" do
       end
     end
   end
