@@ -26,7 +26,7 @@ class FundTweetsController < ApplicationController
   def search
     ## Since this will be automated, I'm going to just snag a single result at
     ## a time in an attempt to focus on quality of the retweet vs quantity.
-    @search_results = twitter_client.search("conference scholarship apply OR win tech OR technology", result_type: "recent").take(1)
+    @search_results = twitter_client.search("conference scholarship apply OR win tech OR technology -filter:retweets", result_type: "recent").take(5)
     # render json: @search_results
   end
 
