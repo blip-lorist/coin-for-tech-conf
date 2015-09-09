@@ -15,19 +15,17 @@ class FundTweetsController < ApplicationController
     render json: {}
   end
 
-  def cron_test
-    rando_string = (0...8).map { (65 + rand(26)).chr }.join
-    @post = twitter_client.update(rando_string)
-    render json: {}
-  end
+  # def cron_test
+  #   rando_string = (0...8).map { (65 + rand(26)).chr }.join
+  #   @post = twitter_client.update(rando_string)
+  #   render json: {}
+  # end
 
   private
 
   def search
-    ## Since this will be automated, I'm going to just snag a single result at
-    ## a time in an attempt to focus on quality of the retweet vs quantity.
+    # Snag the five most recent relevant tweets
     @search_results = twitter_client.search("conference scholarship apply OR win tech OR technology -filter:retweets", result_type: "recent").take(5)
-    # render json: @search_results
   end
 
 end
