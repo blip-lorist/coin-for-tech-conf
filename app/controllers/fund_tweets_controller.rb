@@ -8,19 +8,14 @@ class FundTweetsController < ApplicationController
   def retweet
     search
     @search_results.each do |tweet|
-      twitter_client.retweet(tweet)
+      begin
+        twitter_client.retweet(tweet)
+      rescue
+        next # Try to retweet the next tweet if there's a duplicate
+      end
     end
   end
 
   private
-
-  # def prep_results(results)
-  #   retweet_ids = []
-  #
-  #   @search_results.each do |tweet|
-  #     retweet_ids << tweet.id
-  #   end
-  #   retweet_ids
-  # end
 
 end

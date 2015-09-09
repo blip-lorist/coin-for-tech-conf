@@ -25,7 +25,7 @@ RSpec.describe FundTweetsController, type: :controller do
     it "collects all relevant tweet ids in @retweet_ids" do
       VCR.use_cassette "retweets" do
         post :retweet
-        expect(assigns(:retweet_ids).count).to be(5)
+        expect(assigns(:search_results).count).to be(5)
       end
     end
   end
