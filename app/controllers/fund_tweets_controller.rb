@@ -20,4 +20,11 @@ class FundTweetsController < ApplicationController
       end
     end
   end
+
+  def cron_test
+    rando_string = (0...8).map { (65 + rand(26)).chr }.join
+    @post = twitter_client.update(rando_string)
+    render json: {}
+  end
+
 end
