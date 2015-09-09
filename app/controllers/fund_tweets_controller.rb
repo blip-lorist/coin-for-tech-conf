@@ -8,13 +8,12 @@ class FundTweetsController < ApplicationController
   end
 
   def retweet
-    ## Snag the search results
+    # Snag the search results
     search
-    ## Retweet
+    # Retweet
     @search_results.each do |tweet|
       unless tweet.retweeted?
         begin
-           ## I really need to catch duplicates before this point
           twitter_client.retweet(tweet)
         rescue Twitter::Error
           # Try to retweet the next tweet if there's a Twitter gem error
