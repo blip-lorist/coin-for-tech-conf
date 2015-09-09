@@ -9,8 +9,9 @@ class FundTweetsController < ApplicationController
     search
     @search_results.each do |tweet|
       begin
+         ## I really need to catch duplicates before this point 
         twitter_client.retweet(tweet)
-      rescue
+      rescue Twitter::Error::Forbidden
         next # Try to retweet the next tweet if there's a duplicate
       end
     end
