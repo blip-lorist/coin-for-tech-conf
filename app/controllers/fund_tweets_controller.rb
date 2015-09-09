@@ -10,8 +10,6 @@ class FundTweetsController < ApplicationController
   def retweet
     ## Snag the search results
     search
-
-    binding.pry
     ## Retweet
     @search_results.each do |tweet|
       unless tweet.retweeted?
@@ -25,12 +23,4 @@ class FundTweetsController < ApplicationController
       end
     end
   end
-
-  private
-
-  # def remove_duplicates(search_results)
-  #   ## Snag my last five retweets tweets
-  #   ## See if the IDs match the current search results
-  #   ## Kick out duplicates
-  # end
 end
