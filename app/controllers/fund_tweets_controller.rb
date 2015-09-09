@@ -14,7 +14,7 @@ class FundTweetsController < ApplicationController
     @search_results.each do |tweet|
       begin
         twitter_client.retweet(tweet)
-      rescue Twitter::Error
+      rescue Twitter::Error # Lazy guard clause
         # Try to retweet the next tweet if there's a Twitter gem error
         next
       end
