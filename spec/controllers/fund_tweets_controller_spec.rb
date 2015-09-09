@@ -22,10 +22,16 @@ RSpec.describe FundTweetsController, type: :controller do
 
   describe "POST fund_tweets#retweet" do
 
-    it "collects all relevant tweet ids in @retweet_ids" do
-      VCR.use_cassette "retweets" do
-        post :retweet
-        expect(assigns(:search_results).count).to be(5)
+    context "when a unique retweet is found" do
+      it "retweets" do
+        VCR.use_cassette "retweets" do
+          post :retweet
+        end
+      end
+    end
+
+    context "when a duplicate is found" do
+      it "skips the retweet attempt" do
       end
     end
   end
