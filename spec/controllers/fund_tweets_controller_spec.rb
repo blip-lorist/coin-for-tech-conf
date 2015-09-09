@@ -12,10 +12,10 @@ RSpec.describe FundTweetsController, type: :controller do
       end
     end
 
-    it "returns five tweets after a successful search query" do
+    it "returns a tweet after a successful search query" do
       VCR.use_cassette "twitter_search_results" do
         get :search
-        expect(assigns(:search_results).count).to eq(5)
+        expect(assigns(:search_results).count).to eq(1)
       end
     end
   end
