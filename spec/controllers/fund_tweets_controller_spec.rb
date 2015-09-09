@@ -12,10 +12,30 @@ RSpec.describe FundTweetsController, type: :controller do
       end
     end
 
-    it "returns five tweets after a successful search query" do
+    it "returns a tweet after a successful search query" do
       VCR.use_cassette "twitter_search_results" do
         get :search
-        expect(assigns(:search_results).count).to eq(5)
+        expect(assigns(:search_results).count).to eq(1)
+      end
+    end
+  end
+
+  describe "POST fund_tweets#retweet" do
+
+    context "when a unique tweet is found" do
+      it "retweets it" do
+        VCR.use_cassette "retweets" do
+          post :retweet
+          tweet_id = assigns(:search_results).first.id
+          tweet = (controller.send(:twitter_client)).status(tweet_id)
+          expect(tweet.retweeted?).to eq(true)
+        end
+      end
+    end
+
+    context "when a duplicate is found" do
+      it "raises an error and skips it" do
+        # Write this later
       end
     end
   end
