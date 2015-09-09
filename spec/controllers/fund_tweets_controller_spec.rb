@@ -22,14 +22,20 @@ RSpec.describe FundTweetsController, type: :controller do
 
   describe "POST fund_tweets#retweet" do
 
-    context "when a unique retweet is found" do
-      it "retweets" do
+    context "when a unique tweet is found" do
+      it "retweets it" do
         VCR.use_cassette "retweets" do
           post :retweet
           tweet_id = assigns(:search_results).first.id
           tweet = (controller.send(:twitter_client)).status(tweet_id)
           expect(tweet.retweeted?).to eq(true)
         end
+      end
+    end
+
+    context "when a duplicate is found" do
+      it "raises an error and skips it" do
+        # Write this later
       end
     end
   end
