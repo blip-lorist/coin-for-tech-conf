@@ -5,30 +5,29 @@ RSpec.describe FundTweetsController, type: :controller do
 
   describe "GET fund_tweets#search" do
 
-    it "returns JSON" do
-      VCR.use_cassette "twitter_search_results" do
-        get :search
-        expect(response.header['Content-Type']).to include 'application/json'
-      end
-    end
-
     it "returns a tweet after a successful search query" do
       VCR.use_cassette "twitter_search_results" do
-        get :search
-        expect(assigns(:search_results).count).to eq(1)
+        controller.send(:search)
+        expect(assigns(:search_results).count).to eq(5)
       end
     end
   end
 
   describe "POST fund_tweets#retweet" do
-
     context "when a unique tweet is found" do
       it "retweets it" do
         VCR.use_cassette "retweets" do
-          post :retweet
+          get :retweet
           tweet_id = assigns(:search_results).first.id
           tweet = (controller.send(:twitter_client)).status(tweet_id)
           expect(tweet.retweeted?).to eq(true)
+        end
+      end
+
+      it "returns a JSON object" do
+        VCR.use_cassette "retweets" do
+          get :retweet
+          expect(response.header['Content-Type']).to include 'application/json'
         end
       end
     end

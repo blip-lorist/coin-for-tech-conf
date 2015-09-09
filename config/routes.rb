@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get '/search' => 'fund_tweets#search', as: 'search'
+  get '/retweet' => 'fund_tweets#retweet', as: 'retweet'
 
-  post '/retweet' => 'fund_tweets#retweet', as: 'retweet'
+  get '/crontest' => 'fund_tweets#cron_test', as: 'crontest'
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
