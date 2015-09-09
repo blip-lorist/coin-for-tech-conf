@@ -6,10 +6,14 @@ class FundTweetsController < ApplicationController
   end
 
   def retweet
-    search
+    remove_duplicates(search)
+
+    ## Need to call a private method
+    ## to check if search results contain duplicate ids
+
     @search_results.each do |tweet|
       begin
-         ## I really need to catch duplicates before this point 
+         ## I really need to catch duplicates before this point
         twitter_client.retweet(tweet)
       rescue Twitter::Error::Forbidden
         next # Try to retweet the next tweet if there's a duplicate
@@ -19,4 +23,9 @@ class FundTweetsController < ApplicationController
 
   private
 
+  def remove_duplicates(search_results)
+    ## Snag my last five retweets tweets
+    ## See if the IDs match the current search results
+    ## Kick out duplicates
+  end
 end
