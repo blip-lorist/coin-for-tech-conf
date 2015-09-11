@@ -1,3 +1,5 @@
+require "./lib/TwitterBot"
+
 task :search_and_retweet do
-  puts "Retweeting nao"
+  TwitterBot.new.retweet
 end
