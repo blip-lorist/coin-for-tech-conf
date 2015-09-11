@@ -2,6 +2,7 @@ require "twitter"
 
 unless Rails.env.production?
   require "dotenv-rails"
+  require "pry-rails"
 end
 
 class TwitterBot
@@ -16,8 +17,12 @@ class TwitterBot
   end
 
   def retweet
-    # Snag the search results
-    search
+    unless search == nil
+      post_stuff
+    end
+  end
+
+  def post_stuff
     # Retweet
     @search_results.each do |tweet|
       begin
@@ -34,11 +39,13 @@ class TwitterBot
   #   @post = twitter_client.update(rando_string)
   # end
 
-  private
-
   def search
     # Snag the five most recent relevant tweets
-    @search_results = twitter_client.search("conference scholarship apply OR win tech OR technology -filter:retweets", result_type: "recent").take(5)
+    first_search = twitter_client.search("conference OR conf apply OR win tech OR technology scholarship -filter:retweets -filter:mentions").take(10)
+    second_search = twitter_client.search("conference OR conf tech OR technology free OR reduced ticket OR admission -filter:retweets -filter:mentions").take(10)
+    third_search = twitter_client.search("from:diversity_conf scholarship").take(5)
+
+    @search_results = first_search + second_search + third_search
   end
 
 end
