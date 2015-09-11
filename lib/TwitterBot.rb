@@ -1,5 +1,8 @@
 require "twitter"
-require "dotenv-rails"
+
+unless Rails.env.production?
+  require "dotenv-rails"
+end
 
 class TwitterBot
 
