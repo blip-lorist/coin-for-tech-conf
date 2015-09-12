@@ -1,5 +1,3 @@
-require "./lib/TwitterBot"
-
 class FundTweetsController < ApplicationController
 
   # I'm not sure why this is even here since there's no point of routes / actions.
