@@ -41,7 +41,7 @@ Aspiring and current tech students who wouldn't be able to attend tech conferenc
 ## Added Fun
   - Filtering search results by certain criteria: Number of favorites and retweets, very specific keywords, etc
   - Having CoinForTechConf add its own hashtags to retweets for easier sorting
-  - Adjusting bot settings so that CoinForTechConf responds to common Twitter interactions (follows, mentions, etc)
+  - ⭐️⭐️⭐️ Having CoinForTechConf remember deadlines mentioned and tweet out periodic application reminders
 
 ## Resources (List Ongoing)
   - [Twitter Automation Rules and Best Practices](https://support.twitter.com/articles/76915)
