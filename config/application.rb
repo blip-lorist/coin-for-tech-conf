@@ -15,7 +15,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-require "./lib/TwitterBot"
+require "./lib/twitter_bot"
 
 module CoinForTechConf
   class Application < Rails::Application
