@@ -20,7 +20,7 @@ class TwitterBot
     # Snag the five most recent relevant tweets
     first_search = twitter_client.search("conference OR conf apply OR win tech OR technology scholarship -filter:retweets -filter:mentions").take(5)
     second_search = twitter_client.search("conference OR conf tech OR technology free OR reduced ticket OR admission -filter:retweets -filter:mentions").take(5)
-    third_search = twitter_client.search("from:diversity_conf scholarship").take(5)
+    third_search = twitter_client.search("underrepresented OR minority tech OR technology summit").take(5)
 
     @search_results = first_search + second_search + third_search
   end
@@ -66,7 +66,7 @@ class TwitterBot
   end
 
   def retweet
-    unless filter(search) == nil || filter(search).count == 0 
+    unless filter(search) == nil || filter(search).count == 0
       post_stuff
     end
   end
