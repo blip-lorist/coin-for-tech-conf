@@ -1,9 +1,7 @@
 require "twitter"
 
-unless Rails.env.production?
-  require "dotenv-rails"
-  require "pry-rails"
-end
+require 'dotenv'
+Dotenv.load
 
 class TwitterBot
 
