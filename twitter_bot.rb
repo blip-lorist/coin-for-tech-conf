@@ -36,4 +36,7 @@ class TwitterBot
         end
     end
   end
+
 end
+
+TwitterBot.new.retweet
