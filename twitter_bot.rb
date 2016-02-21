@@ -1,5 +1,5 @@
 require "twitter"
-
+require "pry"
 require 'dotenv'
 Dotenv.load
 
@@ -16,9 +16,9 @@ class TwitterBot
 
   def search
     # Snag five most recent tweets within three search groups
-    first_search = twitter_client.search("conference OR conf apply OR win tech OR technology scholarship -filter:retweets -filter:mentions").take(5)
+    first_search = twitter_client.search("conference OR conf apply OR win tech OR technology scholarship").take(5)
 
-    second_search = twitter_client.search("conference OR conf tech OR technology free OR reduced ticket OR admission -filter:retweets -filter:mentions").take(5)
+    second_search = twitter_client.search("conference OR conf tech OR technology free OR reduced ticket OR admission").take(5)
 
     third_search = twitter_client.search("underrepresented OR minority tech OR technology summit OR scholarship").take(5)
 
