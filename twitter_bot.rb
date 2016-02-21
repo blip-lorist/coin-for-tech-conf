@@ -35,6 +35,7 @@ class TwitterBot
             next
         end
     end
+    print "Retweeting complete."
   end
 
 end
