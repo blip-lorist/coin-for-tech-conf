@@ -22,11 +22,12 @@ class TwitterBot
 
     third_search = twitter_client.search("underrepresented OR minority tech OR technology summit OR scholarship").take(3)
 
-    fourth_search = twitter_client.search("scholarship apply ruby OR python OR javascript OR java OR php -clifton -monty").take(3)
+    fourth_search = twitter_client.search("rubyconf OR pycon OR jsconf OR javaconf scholarship OR assistance apply OR win", result_type: "recent").take(3)   
+    fifth_search = twitter_client.search("strangeloop OR railsconf OR smashingconf OR djangocon OR emberconf OR ngconf OR reactconf OR laracon scholarship OR assistance apply OR win", result_type: "recent").take(3)
     
-    fifth_search = twitter_client.search("scholarship apply asp.net OR angularjs OR rails OR django OR meteor OR laravel OR codeigniter OR reactjs OR nodejs").take(3)
-
-    @search_results = first_search + second_search + third_search + fourth_search + fifth_search
+    sixth_search = twitter_client.search("gracehopper OR lesbianswhotech OR sxsw OR wwdc OR e3 scholarship OR assistance apply OR win", result_type: "recent").take(3)
+   
+    @search_results = first_search + second_search + third_search + fourth_search + fifth_search + sixth_search
   end
   
   def retweet
