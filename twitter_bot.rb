@@ -1,5 +1,4 @@
 require "twitter"
-require "pry"
 require 'dotenv'
 Dotenv.load
 
@@ -15,34 +14,37 @@ class TwitterBot
   end
 
   def search
-    # Snag three recent tweets within five search groups
-    first_search = twitter_client.search("conference OR conf apply OR win tech OR technology scholarship").take(3)
-
-    second_search = twitter_client.search("conference OR conf tech OR technology free OR reduced ticket OR admission").take(3)
-
-    third_search = twitter_client.search("underrepresented OR minority tech OR technology summit OR scholarship").take(3)
-
-    fourth_search = twitter_client.search("rubyconf OR pycon OR jsconf OR javaconf scholarship OR assistance apply OR win", result_type: "recent").take(3)   
-    fifth_search = twitter_client.search("strangeloop OR railsconf OR smashingconf OR djangocon OR emberconf OR ngconf OR reactconf OR laracon scholarship OR assistance apply OR win", result_type: "recent").take(3)
-    
-    sixth_search = twitter_client.search("gracehopper OR lesbianswhotech OR sxsw OR wwdc OR e3 scholarship OR assistance apply OR win", result_type: "recent").take(3)
-   
-    @search_results = first_search + second_search + third_search + fourth_search + fifth_search + sixth_search
-  end
+      # Snag five most recent tweets within three search groups
+      first_search = twitter_client.search("conference OR conf apply OR win tech OR technology scholarship -didn -not").take(3)
   
-  def retweet
-    search
-    @search_results.each do |tweet|
-        begin
-            twitter_client.retweet(tweet)
-        rescue Twitter::Error # Lazy guard clause
-            # Try to retweet the next tweet if there's a Twitter gem error
-            next
-        end
+      second_search = twitter_client.search("conference OR conf tech OR technology free OR reduced ticket OR admission -didn -not").take(3)
+  
+      third_search = twitter_client.search("underrepresented OR minority tech OR technology summit OR scholarship -didn -not").take(3)
+  
+      fourth_search = twitter_client.search("rubyconf OR pycon OR jsconf OR javaconf scholarship OR assistance apply OR win -didn -not", result_type: "recent").take(3)
+  
+      fifth_search = twitter_client.search("strangeloop OR railsconf OR smashingconf OR djangocon OR emberconf OR ngconf OR reactconf OR laracon scholarship OR assistance apply OR win -didn -not", result_type: "recent").take(3)
+  
+      sixth_search = twitter_client.search("gracehopper OR lesbianswhotech OR sxsw OR wwdc OR e3 scholarship OR assistance apply OR win -didn -not", result_type: "recent").take(3)
+  
+      @search_results = first_search + second_search + third_search + fourth_search + fifth_search + sixth_search
+  
     end
-    print "Retweeting complete."
-  end
-
+  
+    def retweet
+      search
+      @search_results.each do |tweet|
+          begin
+              twitter_client.retweet(tweet)
+          rescue Twitter::Error # Lazy guard clause
+              # Try to retweet the next tweet if there's a Twitter gem error
+              next
+          end
+      end
+      print "Retweeting complete."
+    end
+  
 end
 
 TwitterBot.new.retweet
+
