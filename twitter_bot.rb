@@ -15,17 +15,17 @@ class TwitterBot
 
   def search
       # Snag five most recent tweets within three search groups
-      first_search = twitter_client.search("conference OR conf apply OR win tech OR technology scholarship -didn -not").take(3)
+      first_search = twitter_client.search("conference OR conf apply OR win tech OR technology scholarship -didn -not -won\'t").take(3)
   
-      second_search = twitter_client.search("conference OR conf tech OR technology free OR reduced ticket OR admission -didn -not").take(3)
+      second_search = twitter_client.search("conference OR conf tech OR technology free OR reduced ticket OR admission -didn -not -won\'t").take(3)
   
-      third_search = twitter_client.search("underrepresented OR minority tech OR technology summit OR scholarship -didn -not").take(3)
+      third_search = twitter_client.search("underrepresented OR minority tech OR technology summit OR scholarship -didn -not -won\'t").take(3)
   
-      fourth_search = twitter_client.search("rubyconf OR pycon OR jsconf OR javaconf scholarship OR assistance apply OR win -didn -not", result_type: "recent").take(3)
+      fourth_search = twitter_client.search("rubyconf OR pycon OR jsconf OR javaconf scholarship OR assistance apply OR win -didn -not -won\'t", result_type: "recent").take(3)
   
-      fifth_search = twitter_client.search("strangeloop OR railsconf OR smashingconf OR djangocon OR emberconf OR ngconf OR reactconf OR laracon scholarship OR assistance apply OR win -didn -not", result_type: "recent").take(3)
+      fifth_search = twitter_client.search("strangeloop OR railsconf OR smashingconf OR djangocon OR emberconf OR ngconf OR reactconf OR laracon scholarship OR assistance apply OR win -didn -not -won\'t", result_type: "recent").take(3)
   
-      sixth_search = twitter_client.search("gracehopper OR lesbianswhotech OR sxsw OR wwdc OR e3 scholarship OR assistance apply OR win -didn -not", result_type: "recent").take(3)
+      sixth_search = twitter_client.search("gracehopper OR lesbianswhotech OR sxsw OR wwdc OR e3 scholarship OR assistance apply OR win -didn -not -won\'t", result_type: "recent").take(3)
   
       @search_results = first_search + second_search + third_search + fourth_search + fifth_search + sixth_search
   
